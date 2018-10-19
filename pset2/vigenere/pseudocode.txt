@@ -1,0 +1,5 @@
+input keyword
+input plaintext
+Keyword chars to numbers
+Shift plaintext with numbers
+output ciphertext
