@@ -31,26 +31,28 @@ int main(int argc, char *argv[])
             if(!found)
             {
                 found = true;
-
                 char filename[8];
                 sprintf(filename, "%03i.jpg", file_counter++);
                 new_jpg_ptr = fopen(filename, "w");
+
                 if(new_jpg_ptr == NULL)
                 {
                     return 3;
                 }
-                fwrite(buffer,1,512 ,new_jpg_ptr);
 
+                fwrite(buffer,1,512 ,new_jpg_ptr);
             }else
             {
                 fclose(new_jpg_ptr);
                 char filename[8];
                 sprintf(filename, "%03i.jpg", file_counter++);
                 new_jpg_ptr = fopen(filename, "w");
+
                 if(new_jpg_ptr == NULL)
                 {
                     return 3;
                 }
+
                 fwrite(buffer,1,512 ,new_jpg_ptr);
             }
         }else
@@ -60,9 +62,7 @@ int main(int argc, char *argv[])
                 fwrite(buffer,1,512 ,new_jpg_ptr);
             }
         }
-
     }
-
     fclose(new_jpg_ptr);
     fclose(card_ptr);
 return 0;
