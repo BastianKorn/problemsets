@@ -3,28 +3,26 @@ from cs50 import get_int
 def main():
 
     number = get_int("Nummer: ")
-
     length = len(str(number))
-
-    cnumber = number
+    buffer1 = number
     addnumber = 0
 
     for i in range(length):
-        cnumber = cnumber // 10
-        ccnumber = cnumber % 10
-        ccnumber = ccnumber * 2
-        if ccnumber > 9:
-            cccnumber = ccnumber % 10
-            ccnumber = cccnumber + (ccnumber//10)
-        addnumber = addnumber + ccnumber
-        cnumber = cnumber // 10
+        buffer1 = buffer1 // 10
+        buffer2 = buffer1 % 10
+        buffer2 = buffer2 * 2
+        if buffer2 > 9:
+            buffer3 = buffer2 % 10
+            buffer2 = buffer3 + (buffer2//10)
+        addnumber = addnumber + buffer2
+        buffer1 = buffer1 // 10
 
-    cnumber = number
+    buffer1 = number
 
     for i in range(length):
-        ccnumber = cnumber % 10
-        cnumber = cnumber // 100
-        addnumber = addnumber + ccnumber
+        buffer2 = buffer1 % 10
+        buffer1 = buffer1 // 100
+        addnumber = addnumber + buffer2
 
     check = number // pow(10,length-1)
 
@@ -55,7 +53,6 @@ def main():
     elif check == 55:
         if length == 16:
             print("MasterCard")
-
 
     if addnumber % 10 == 0:
         print("Valid")
