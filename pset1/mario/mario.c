@@ -3,18 +3,18 @@
 
 int main (void)
 {
-    int h;
+    int height;
     int c = 0;
+
     do
     {
         printf("Welche Hoehe?\n");
-        h = get_int();
-    }while(hoch < 1 || hoch > 8);
+        height = get_int();
+    }while(height < 1 || height > 8);
 
-    for(int a = h; a > 0; a--) //Höhe
+    for(int i = height; i > 0; i--) //Höhe
     {
-
-        for(int l = 0; l < a - 1; l++)  //Leerzeichen vor #
+        for(int space = 0; space < i - 1; space++)  //Leerzeichen vor #
         {
             printf(" ");
         }
@@ -22,14 +22,14 @@ int main (void)
         printf("#"); //Gibt ein # aus
         c++;
 
-        for (int d = 0; d < c - 1; d++) //Gibt zusätzliche # aus
+        for (int hash = 0; hash < c - 1; hash++) //Gibt zusätzliche # aus
         {
             printf("#");
         }
 
         printf(" "); // Leerzeichen
 
-        for (int d = 0; d < c; d++) //Gibt zusätzliche # aus
+        for (int hash = 0; hash < c; hash++) //Gibt zusätzliche # aus
         {
             printf("#");
         }
