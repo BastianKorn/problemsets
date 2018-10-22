@@ -26,8 +26,7 @@ int duration(string fraction)
         {
             return 8;
         }
-    }
-    else if(fraction[0] == '3')
+    }else if(fraction[0] == '3')
     {
         return 3;
     }
@@ -42,33 +41,33 @@ int duration(string fraction)
 int frequency(string note)
 {
     int octave = note[strlen(note) - 1];
-    octave -= 48; // Ascii 0 = 48
+    octave -= 48; // Ascii Zahlen fangen bei 48 (Zahl 0) and
     double freq = 0.0;
 
     switch(note[0])
     {
-        case 'C' :
+        case 'C':
             freq = 440.0 / (pow(2.0, (9.0 / 12.0)));
             break;
-        case 'D' :
+        case 'D':
             freq = 440.0 / (pow(2.0, (7.0 / 12.0)));
             break;
-        case 'E' :
+        case 'E':
             freq = 440.0 / (pow(2.0, (5.0 / 12.0)));
             break;
-        case 'F' :
+        case 'F':
             freq = 440.0 / (pow(2.0, (4.0 / 12.0)));
             break;
-        case 'G' :
+        case 'G':
             freq = 440.0 / (pow(2.0, (2.0 / 12.0)));
             break;
-        case 'A' :
+        case 'A':
             freq = 440.0;
             break;
-        case 'B' :
+        case 'B':
             freq = 440.0 * (pow(2.0, (2.0 / 12.0)));
             break;
-        default :
+        default:
             return 0;
     }
 
@@ -104,7 +103,6 @@ int frequency(string note)
 // Determines whether a string represents a rest
 bool is_rest(string s)
 {
-
     if(strncmp(s, "", 1))
     {
         return false;
