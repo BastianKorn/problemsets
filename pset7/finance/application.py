@@ -289,7 +289,8 @@ def sell():
         return redirect(url_for("index"))
 
     else:
-        return render_template("sell.html")
+        datasets = db.execute("SELECT symbol FROM portfolio WHERE id=:id", id=session["user_id"])
+        return render_template("sell.html", symbols=datasets)
 
 
 def errorhandler(e):
