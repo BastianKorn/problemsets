@@ -96,3 +96,12 @@ class UserTransactions(FormularCheck):
                         db.execute("UPDATE user SET expenditure=expenditure+:expenditure, budget=budget-:expenditure WHERE ID=:ID", ID=session["user_ID"], expenditure=expenditure)
                         db.execute("INSERT INTO history (subject,expenditure,ID) VALUES (:subject,:expenditure,:ID)", subject=subject,expenditure=expenditure,ID=session["user_ID"])
                     db.execute("DELETE FROM booking WHERE booking_ID=:booking_ID", booking_ID = booking_ID)
+
+    def deleteLastTransaction(self):
+        RecentTransaction = db.execute("SELECT * FROM history WHERE ID=:ID ORDER BY date_time DESC LIMIT 1", ID = session["user_ID"])
+        if RecentTransaction:
+            if RecentTransaction[0]["income"] != 0:
+                db.execute("UPDATE user SET income=income-:recentIncome, budget=budget-:recentIncome WHERE ID=:ID", ID = session["user_ID"], recentIncome = RecentTransaction[0]["income"])
+            elif RecentTransaction[0]["expenditure"] != 0:
+                db.execute("UPDATE user SET expenditure=expenditure-:recentExpenditure, budget=budget+:recentExpenditure WHERE ID=:ID", ID = session["user_ID"], recentExpenditure = RecentTransaction[0]["expenditure"])
+            db.execute("DELETE FROM history WHERE ID=:ID ORDER BY date_time DESC LIMIT 1", ID = session["user_ID"])

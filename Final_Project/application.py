@@ -18,6 +18,7 @@ import Transactions
 from Formular import FormularParser
 from Settings import UserSettings
 from Service import UserService
+from Transactions import UserTransactions
 
 # Configure application
 app = Flask(__name__)
@@ -54,9 +55,11 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///users.db")
 
-@app.route("/")
+@app.route("/", methods=["POST", "GET"])
 @login_required
 def index():
+    if request.method == "POST":
+        UserTransactions().deleteLastTransaction()
     Instanz = FormularParser()
     Instanz.getUserDatabaseContent()
     return render_template("index.html",rows=Instanz.recenthistory, stocks=Instanz.user)

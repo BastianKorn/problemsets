@@ -5,8 +5,6 @@
 {% endblock %}
 
 {% block main %}
-
-<form action="/index" method="post">
     <div class="indexbox roundedbox">
         {% for stock in stocks %}
         <div class="budget">
@@ -34,6 +32,9 @@
         <div class="historyindex">
             Your recent transactions:
         </div>
+        <form method="POST">
+            <button type="submit" name="deleteLastTransaction" class="btn btn-secondary ownbtn">Delete</button><label for="deleteLastTransaction" id="uploadlabel">Delete last Transaction</label>
+        </form>
     </div>
 
     <table align="center" id="historytable" class="roundedtable">
@@ -52,6 +53,4 @@
             </tr>
         {% endfor %}
     </table>
-</form>
-
 {% endblock %}

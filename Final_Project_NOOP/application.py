@@ -43,14 +43,21 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///users.db")
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
+    if request.method == "POST":
+        RecentTransaction = db.execute("SELECT * FROM history WHERE ID=:ID ORDER BY date_time DESC LIMIT 1", ID = session["user_ID"])
+        if RecentTransaction:
+            if RecentTransaction[0]["income"] != 0:
+                db.execute("UPDATE user SET income=income-:recentIncome, budget=budget-:recentIncome WHERE ID=:ID", ID = session["user_ID"], recentIncome = RecentTransaction[0]["income"])
+            elif RecentTransaction[0]["expenditure"] != 0:
+                db.execute("UPDATE user SET expenditure=expenditure-:recentExpenditure, budget=budget+:recentExpenditure WHERE ID=:ID", ID = session["user_ID"], recentExpenditure = RecentTransaction[0]["expenditure"])
+            db.execute("DELETE FROM history WHERE ID=:ID ORDER BY date_time DESC LIMIT 1", ID = session["user_ID"])
 
     #Show all infos for user on index
     history = db.execute("SELECT * FROM history WHERE ID=:ID ORDER BY date_time DESC LIMIT 10", ID=session["user_ID"])
     user = db.execute("SELECT * FROM user WHERE ID=:ID", ID=session["user_ID"])
-
     return render_template("index.html",rows=history, stocks=user)
 
 @app.route("/login", methods=["GET", "POST"])
