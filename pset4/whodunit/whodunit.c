@@ -64,13 +64,6 @@ int main(int argc, char *argv[])
                 triple.rgbtGreen = 0x00;
                 triple.rgbtBlue = 0x00;
             }
-            if(triple.rgbtRed == 0xff)
-            {
-                triple.rgbtRed = 0xff;
-                triple.rgbtGreen = 0xff;
-                triple.rgbtBlue = 0xff;
-            }
-
             // write RGB triple to outfile
             fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
         }
