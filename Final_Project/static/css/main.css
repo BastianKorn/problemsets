@@ -1,0 +1,627 @@
+@font-face {
+    font-family: Simplifica;
+    src: url('fonts/Simplifica.ttf');
+}
+
+/* STRUKTUR */
+.container-1{
+    display: flex;
+    align-items:flex-start;
+}
+
+.container-1 div, .container-2 div {
+    padding: 0px;
+}
+
+.container-2{
+    margin-left: 20%;
+}
+
+.box-navbar{
+    flex: 1;
+    order: 2;
+}
+
+.box-sidebar{
+    width: 20%;
+    height: 100%;
+}
+
+.box-content{
+    flex: 1;
+    order: 2;
+    margin-top: 40px;
+}
+
+.container{
+    font-family: 'Simplifica', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+hr{
+    border: 0 !important;
+    height: 1px !important;
+    width: 50%;
+    background-image: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0)) !important;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    z-index: 1;
+    background-color: #404040 !important;
+    color: white;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    border-bottom-width: 1px;
+    -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+    font-family: 'Simplifica', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.fixnavbar{
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    z-index: 1;
+}
+
+/* SIDENAV */
+
+.sidenav {
+    border-right-style: solid;
+    border-right-color: white;
+    border-right-width: 1px;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 40px;
+    left: 0;
+    background-color: #404040;
+    overflow-x: hidden;
+    padding-top: 20px;
+    text-align: center;
+    -webkit-box-shadow: 2px 4px 8px 0px #999;
+    -moz-box-shadow: 2px 4px 8px 0px #999;
+    box-shadow: 2px 4px 8px 0px #999;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    font-size: 25px;
+    color: white;
+    display: block;
+    font-family: "Simplifica", sans-serif;
+}
+
+.sidenav a:hover {
+    color: #cccccc;
+}
+
+.sidenav a:active{
+    color: white;
+}
+
+.sidenav a:visited{
+    color: white;
+}
+
+/* TABLE */
+
+th, td{
+    text-align: center !important;
+}
+
+th{
+    font-size: 1.2em;
+    background-color: #404040;
+}
+
+tr:nth-child(odd){
+    background: #404040;
+    color: white;
+}
+
+td:nth-child(2) {
+    color: #5cd65c;
+}
+
+td:nth-child(3) {
+    color: #ff4d4d;
+}
+
+.tabletxt, .historyindex{
+    margin-top: 3cm;
+    font-size: 1.1em;
+}
+
+.tabletxt, .history{
+    margin-top: 1cm;
+    font-size: 1.1em;
+}
+
+#historytable{
+    width: 100%;
+    border-style: solid;
+    border-bottom-style: none;
+    border-width: 5px !important;
+    border-color: grey;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 6;
+}
+
+.roundedtable{
+    border-collapse: separate !important;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius: 5px;
+}
+
+/* PICTURES */
+
+.pic{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.picnavbar, .picregister{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.budgetpic{
+    padding-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.top-userpic, .top-limitation, .top-reset-form, .top-delete-form, .top-change-username, .top-change-password{
+    display: block;
+    text-align: center;
+}
+
+.user-pic-show{
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: -40px;
+}
+
+.profipic{
+    height: 120px;
+    width: 120px;
+}
+
+/* FORMS */
+
+.form-row{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.form-control{
+    font-family:'Simplifica', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+.form-control-file{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.form-control-file + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: #404040;
+    display: inline-block;
+    line-height: 1.25;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    border-width: 1px;
+    border-style: solid;
+    transition: all .2s ease-in-out;
+}
+
+.form-control-file:focus + label, .form-control-file + label:hover {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: black;
+    background-color: white;
+    display: inline-block;
+    line-height: 1.25;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.transactionform{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.bookingform{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+/* ERROR */
+
+.errorlogin{
+    text-align: center;
+    color: red;
+    margin-top: -10px;
+    font-size: 25px;
+}
+
+.erroruser{
+    text-align: center;
+    color: red;
+    margin-top: -10px;
+    font-size: 25px;
+}
+
+.errorbooking{
+    text-align: center;
+    color: red;
+    margin-top: -40px;
+    font-size: 25px;
+}
+
+.errortransaction{
+    text-align: center;
+    color: red;
+    margin-top: -40px;
+    font-size: 25px;
+}
+
+.message{
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.caution{
+    color: red;
+}
+
+/* Button */
+
+.ownbtn{
+    font-family: 'Simplifica', sans-serif;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: black !important;
+    border-color: black !important;
+}
+
+.submitbtn{
+    top: 10px !important;
+}
+
+/* OVERVIEW */
+
+.indexbox{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 10%;
+    grid-gap: 5%;
+}
+
+.budget{
+    background-color: #4d79ff;
+    font-size: 1.3em;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding-left: 10px !important;
+    padding-top: 5px !important;
+    box-shadow: 8px 8px 8px -6px #999;
+}
+
+.income{
+    background-color: #5cd65c;
+    font-size: 1.3em;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding-left: 10px !important;
+    padding-top: 5px !important;
+    box-shadow: 8px 8px 8px -6px #999;
+    cursor: pointer;
+}
+
+.expenditures{
+    background-color: #ff4d4d;
+    font-size: 1.3em;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding-left: 10px !important;
+    padding-top: 5px !important;
+    box-shadow: 8px 8px 8px -6px #999;
+    cursor: pointer;
+}
+
+.roundedbox, .expenditures, .income, .budget, .infobox{
+    border-collapse: separate !important;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius: 5px;
+}
+
+.money{
+    text-align: right;
+    padding-right: 10px;
+    font-size: 1.4em;
+}
+
+/* KLASSEN */
+
+.member{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 30px;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.border{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.usersubmit{
+    margin-top: 2cm;
+}
+
+.eursign{
+    font-size: 1.3em;
+}
+
+.enterinc, .enterout, .submitincout{
+    margin-top: 20px;
+}
+
+.usersettings{
+    position: relative;
+}
+
+.usertxt{
+    font-size: 1.1em;
+}
+
+.incoutsub{
+    position: relative;
+}
+
+.submit{
+    position: absolute;
+    z-index: 1;
+}
+
+.infobox{
+    margin-left: auto;
+    margin-right: 0;
+    width: 40.5%;
+    font-size: 1.3em;
+    box-shadow: 8px 8px 8px -6px #999;
+    border-style: solid;
+    border-color: #404040;
+    padding: 5px 5px 5px 5px !important;
+}
+
+.booking{
+    display: block;
+    text-align: center;
+}
+
+.transaction{
+    display: block;
+    text-align: center;
+}
+
+.ownlink{
+    top: 0px !important;
+}
+
+.log{
+    color: white;
+    float: right;
+    padding-right: 10px;
+}
+
+.financelog{
+    float: left;
+}
+
+.financelog a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.register a:hover{
+    text-decoration: none;
+}
+
+/* IDs */
+
+#user{
+    border: 0 !important;
+    height: 1px !important;
+    width: 70%;
+    background-image: linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,0.75),rgba(0,0,0,0)) !important;
+}
+
+#contact{
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}
+
+#login, #register, #booking, #transaction, #user{
+    color: black !important;
+}
+
+/* SMARTPHONE */
+
+@media screen and (max-width: 768px) {
+    #uploadlabel, #checkresetlabel, #checkdeletelabel{
+        font-size: 40px;
+    }
+
+    #checkresetbox, #checkdeletebox{
+        transform: scale(1.5);
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .member{
+      font-size: 35px;
+    }
+
+    #login, #register, #booking, #transaction{
+        color: black !important;
+        font-size: 35px;
+    }
+
+    .ownbtn{
+        font-size: 40px !important;
+    }
+
+    .form-control{
+        font-size: 40px !important;
+    }
+
+    .log{
+        font-size: 30px;
+    }
+
+    .flog{
+        font-size: 30px;
+    }
+
+    #contact{
+        bottom: 80px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        position: absolute;
+    }
+
+    .box-content{
+        margin-top: 60px;
+    }
+
+    .navbar{
+        height: 60px;
+    }
+    .sidenav{
+        top: 60px;
+    }
+
+    .hide{
+        display: none;
+    }
+
+    .indexbox{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10%;
+    }
+
+    .budget{
+        background-color: #4d79ff;
+        font-size: 1.3em;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        padding-left: 10px !important;
+        padding-top: 5px !important;
+        box-shadow: 8px 8px 8px -6px #999;
+    }
+
+    .income{
+        background-color: #5cd65c;
+        font-size: 1.3em;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        padding-left: 10px !important;
+        padding-top: 5px !important;
+        margin-top: 5%;
+        box-shadow: 8px 8px 8px -6px #999;
+    }
+
+    .expenditures{
+        background-color: #ff4d4d;
+        font-size: 1.3em;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 5;
+        grid-row-end: 7;
+        padding-left: 10px !important;
+        padding-top: 5px !important;
+        margin-top: 5%;
+        box-shadow: 8px 8px 8px -6px #999;
+    }
+
+    .pic{
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .picnavbar, .picregister{
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media screen and (max-height: 340px) {
+    #contact{
+        display: none;
+    }
+
+}

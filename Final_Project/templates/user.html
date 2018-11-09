@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{ session.username }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="user-pic-show">
+        <h1><p>{{ session.username }}</p></h1>
+        <img src="static/img/userimg/{{session.imgname}}" width="80" height="80" class="d-inline-block align-middle profilpic" alt="profil image">
+    </div>
+    <form method="POST">
+        <div class="usersettings">
+            <form method="POST">
+                <div class="top-reset-form">
+                    <div class="reset-form">
+                        <p class="usertxt">Reset your budget and history:</p>
+                        <button type="submit" name="reset" class="btn btn-secondary ownbtn">Reset</button>
+                        <div>
+                            <input type="checkbox" name="checkreset" id="checkresetbox">
+                            <label for="checkreset" id="checkresetlabel">Check to enable Reset</label>
+                        </div>
+                        <div class="caution">
+                            <p>{{ reseterrormsg }}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr id="user">
+            <form method="POST" enctype="multipart/form-data">
+                <div class="top-userpic">
+                    <div class="userpic">
+                        <input type="file" name="photo" id="file" class="form-control-file" accept="image/*" />
+                        <label for="file" id="uploadlabel">Choose a picture</label> <br />2MB max. file size <br /> Picture aspect ratio 1:1 <br />
+                        <button type="submit" class="btn btn-secondary ownbtn" name="photo"> Submit </button>
+                        <div class="caution">
+                            <p>{{ imgerrormsg }}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr id="user">
+            <form method="POST">
+                <div class="top-limitation">
+                    <div class="limitation">
+                        <h1>Current possible limitation: <span id="limitation">{% for stock in stocks %}{{ stock.limitation | eur }}{% endfor %}</span></h1>
+                        <p>Change your possible limitation</p>
+                        <div class="form-group col-md-3 mx-auto">
+                            <input type="number" class="col-xs-2 form-control" name="changelimitation" placeholder="+/- 0€" />
+                            <button type="submit" name="changelimitation" class="btn btn-secondary ownbtn">Change</button>
+                            <div class="caution">
+                                <p>{{ limitationerrormsg }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr id="user">
+            <form method="POST">
+                <div class="top-change-username">
+                    <div class="change-username">
+                        <p>Change your username:</p>
+                        <div class="form-group col-md-3 mx-auto">
+                            <input type="text" autocomplete="off" class="col-xs-2 form-control" name="changeusername" placeholder="{{ session.username }}" />
+                            <button type="submit" name="changeusername" class="btn btn-secondary ownbtn">Change</button>
+                            <div class="caution">
+                            <p>{{ usernameerrormsg }}</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr id="user">
+            <form method="POST">
+                <div class="top-change-password">
+                    <div class="change-password">
+                        <p>Change your username:</p>
+                        <div class="form-group col-md-3 mx-auto">
+                            <input class="col-xs-2 form-control" name="oldpassword" placeholder="old password" type="password" />
+                            <input class="col-xs-2 form-control" name="newpassword" placeholder="new password" type="password" />
+                            <button type="submit" name="changepassword" class="btn btn-secondary ownbtn">Change</button>
+                            <div class="caution">
+                            <p>{{ passworderrormsg }}</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <hr id="user">
+            <form method="POST">
+                <div class="top-delete-form">
+                    <div class="delete-form">
+                        <p class="usertxt">Delete your Account:</p>
+                        <button type="submit" name="delete" class="btn btn-secondary ownbtn">Delete</button>
+                        <div>
+                            <input type="checkbox" name="checkdelete" id="checkdeletebox">
+                            <label for="checkdelete" id="checkdeletelabel">Check to enable Delete</label>
+                        </div>
+                        <div class="caution">
+                            <p>{{ deleteerrormsg }}</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </form>
+
+{% endblock %}

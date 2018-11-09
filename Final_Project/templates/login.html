@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+
+    <div class="errorlogin">
+        {% if check is not defined %}
+            <div id="login">Login</div>
+        {% endif %}
+
+        {% if check == 0 %}
+            Please type your E-Mail and Password
+        {% endif %}
+
+        {% if check == 1 %}
+            Please type your E-Mail
+        {% endif %}
+
+        {% if check == 2 %}
+            Please type your Password
+        {% endif %}
+
+        {% if check == 3 %}
+            Wrong E-Mail/Password
+        {% endif %}
+    </div>
+
+
+    <form action="/login" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-3 mx-auto">
+                <input autocomplete="off" autofocus class="form-control" name="email" placeholder="E-Mail" type="email"/>
+            </div>
+
+            <div class="form-group col-md-3 mx-auto">
+                <input class="form-control" name="password" placeholder="Password" type="password"/>
+            </div>
+
+            <button class="btn btn-secondary ownbtn" type="submit">Submit</button>
+        </div>
+    </form>
+
+    <div class="member">
+        <div>Not a member? Register here</div>
+        <a href="/register" class="register" id="register"> <img src="static/img/registerblack.png" class="picregister"/>Register</a>
+    </div>
+
+{% endblock %}

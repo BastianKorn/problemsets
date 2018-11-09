@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Overview
+{% endblock %}
+
+{% block main %}
+
+<form action="/index" method="post">
+    <div class="indexbox roundedbox">
+        {% for stock in stocks %}
+        <div class="budget">
+            <p> BUDGET <img src="static/img/geldscheine.png" align="right" class="d-inline-block align-middle budgetpic" alt="img"/></p>
+            {% if stock.income-stock.expenditure > 0 %}
+                <p class="money">+{{ stock.budget | eur }}</p>
+            {% else %}
+                <p class="money">{{ stock.budget | eur }}</p>
+            {% endif %}
+        </div>
+
+        <div class="income" onclick="window.location = '/transaction'" onmouseover="">
+            <p>ALL INCOME</p>
+            <p class="money">+{{ stock.income | eur }}</p>
+        </div>
+
+        <div class="expenditures" onclick="window.location = '/transaction'" onmouseover="">
+            <p>ALL EXPENDITURE</p>
+            <p class="money">-{{ stock.expenditure | eur }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="tabletxt">
+        <div class="historyindex">
+            Your recent transactions:
+        </div>
+    </div>
+
+    <table align="center" id="historytable" class="roundedtable">
+        <tr>
+            <th>subject</th>
+            <th>Income</th>
+            <th>Expenditure</th>
+            <th>Date/Time</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row.subject }}</td>
+                <td>+{{ row.income | eur }}</td>
+                <td>-{{ row.expenditure | eur }}</td>
+                <td>{{ row.date_time }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</form>
+
+{% endblock %}

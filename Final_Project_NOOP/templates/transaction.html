@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Transaction
+{% endblock %}
+
+{% block main %}
+
+<div class="errortransaction">
+    {% if check is not defined %}
+        <div id="transaction">Transaction</div>
+    {% endif %}
+
+    {% if check == 0 %}
+        Please enter a subject
+    {% endif %}
+
+    {% if check == 1 %}
+        Please enter income or expenditure
+    {% endif %}
+
+    {% if check == 2 %}
+        Don´t use both income and expenditure
+    {% endif %}
+
+    {% if check == 3 %}
+        Can´t overdraft
+    {% endif %}
+
+    {% if check == 4 %}
+        Please use the form below
+    {% endif %}
+
+    {% if check == 5 %}
+        Income can't be 0 or negative
+    {% endif %}
+
+    {% if check == 6 %}
+        expenditure can't be 0 or positive
+    {% endif %}
+</div>
+
+<form action="/transaction" autocomplete="off" method="post" name="transactionform">
+    <div class="form-row">
+        <div class="form-group col-md-3 mx-auto">
+            <h1>Enter subject</h1>
+            <input type="text" class="col-xs-2 form-control" name="subject" placeholder="Subject" class="form-control">
+        </div>
+
+        <div class="form-group col-md-3 mx-auto">
+            <h1>Enter your income/expenditure</h1>
+            <input type="number" class="col-xs-2 form-control" name="inout" placeholder="+/- 0€">
+        </div>
+
+        <div class="form-group col-md-3 mx-auto">
+            <button type="submit" class="btn btn-secondary ownbtn submitbtn">Submit</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

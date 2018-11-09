@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=0.5">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/icon.ico">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <title>Finance: {% block title %} {% endblock %}</title>
+
+  </head>
+
+  <body>
+
+    <div class="container-1">
+      <div class="box-navbar fixnavbar">
+        <nav class="navbar navbar-light bg-faded">
+            <div class="financelog">
+              <a class="flog"><img src="static/img/euro.png" class="d-inline-block align-middle picnavbar" alt="img"/>Finances</a>
+              {% if session.user_ID %}
+                  <a class="log" href="/logout"> <img src="static/img/logout.png" class="d-inline-block align-middle picnavbar"/>Logout</a>
+              {% else %}
+                  <a class="log" href="/login"> <img src="static/img/login.png" class="d-inline-block align-middle picnavbar"/>Login</a>
+
+                  <a class="log" href="/register"> <img src="static/img/registerwhite.png" class="d-inline-block align-middle picnavbar"/>Register</a>
+              {% endif %}
+            </div>
+        </nav>
+      </div>
+    </div>
+
+    <div class="container-2">
+      <div class="box-sidebar">
+        <div class="sidenav">
+          {% if session.user_ID %}
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                <a class="sidebar-brand" href="/user"><img src="static/img/userimg/{{session.imgname}}" class="d-inline-block align-middle pic" alt="profil image">
+                <span class="hide">{{ session.username }}</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="sidebar-brand" href="/"><img src="static/img/overview.png" class="d-inline-block align-middle pic"/>
+                <span class="hide">Overview</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="sidebar-brand" href="/transaction"><img src="static/img/transaction.png" class="d-inline-block align-middle pic"/>
+                <span class="hide">Transaction</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="sidebar-brand" href="/booking"><img src="static/img/booking.png" class="d-inline-block align-middle pic"/>
+                <span class="hide">Booking</span></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="sidebar-brand" href="/history"><img src="static/img/history.png" class="d-inline-block align-middle pic"/>
+                <span class="hide">History</span></a>
+              </li>
+
+            </ul>
+          {% endif %}
+          <a class="sidebar-brand" href="/contact" id="contact"><img src="static/img/contact.png" class="d-inline-block align-middle pic"/>
+          <span class="hide">Contact</span></a>
+        </div>
+      </div>
+
+      <div class="box-content">
+        <main class="container p-5 bottom">
+          {% block main %}{% endblock %}
+        </main>
+      </div>
+    </div>
+
+  </body>
+</html>

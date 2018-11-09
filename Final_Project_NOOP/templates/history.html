@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <div class="tabletxt">
+        <div class="history">
+            Your transactions:
+        </div>
+    </div>
+
+    <table align="center" id="historytable" class="roundedtable">
+        <tr>
+            <th>subject</th>
+            <th>Income</th>
+            <th>Expenditure</th>
+            <th>Date/Time</th>
+        </tr>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row.subject }}</td>
+                <td>+{{ row.income | eur }}</td>
+                <td>-{{ row.expenditure | eur }}</td>
+                <td>{{ row.date_time }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
