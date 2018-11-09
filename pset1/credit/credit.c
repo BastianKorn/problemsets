@@ -12,14 +12,14 @@ int main (void)
     long add = 0;
     long check = 0;
 
-    do{
+    while(buffer1 > 0) {
         buffer1 /= 10;
         length++;
-    }while(buffer1 > 0);
+    }
 
     buffer1 = number;
 
-    for(int i = 0; i < length; i++){
+    for(int i = 0; i < length; i++) {
         buffer1 /= 10;
         buffer2 = buffer1 % 10;
         buffer2 *= 2;
@@ -34,75 +34,46 @@ int main (void)
 
     buffer1 = number;
 
-    for(int i = 0; i < length; i++){
+    for(int i = 0; i < length; i++) {
         buffer2 = buffer1 % 10;
         buffer1 /= 100;
         add += buffer2;
     }
 
+    if (add % 10 != 0) {
+        printf("Invalid\n");
+        return 1;
+    }
+
     check = number / pow(10,length-1);
 
-    switch(check)
-    {
+    switch (check) {
         case 4:
-            if(length == 13 || length == 16){
+            if (length == 13 || length == 16) {
                 printf("VISA\n");
             }
             break;
-
     }
 
     check = number / pow(10,length-2);
 
-    switch(check)
-    {
-        case 34:
-            if (length == 15){
-                printf("American Express\n");
-            }
-            break;
-
+    switch (check) {
         case 37:
-            if (length == 15){
+        case 34:
+            if (length == 15) {
                 printf("American Express\n");
             }
             break;
 
-         case 51:
-            if (length == 16){
-                printf("MasterCard\n");
-            }
-            break;
-
+        case 51:
         case 52:
-            if (length == 16){
-                printf("MasterCard\n");
-            }
-            break;
-
         case 53:
-            if (length == 16){
-                printf("MasterCard\n");
-            }
-            break;
-
         case 54:
-            if (length == 16){
-                printf("MasterCard\n");
-            }
-            break;
-
-         case 55:
-            if (length == 16){
+        case 55:
+            if (length == 16) {
                 printf("MasterCard\n");
             }
             break;
     }
-
-    if (add % 10 == 0){
-        printf("Valid\n");
-    }else
-        printf("Invalid\n");
-
     return 0;
 }

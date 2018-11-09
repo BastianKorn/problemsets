@@ -6,34 +6,28 @@ int main (void)
     int height;
     int c = 0;
 
-    do
-    {
+    while(height < 1 || height > 8) {
         printf("Welche Hoehe?\n");
         height = get_int();
-    }while(height < 1 || height > 8);
+    }
 
-    for(int i = height; i > 0; i--) //Höhe
-    {
-        for(int space = 0; space < i - 1; space++)  //Leerzeichen vor #
-        {
+    for(int i = height; i > 0; i--) { // Höhe
+        for(int space = 0; space < i - 1; space++) { //Leerzeichen vor #
             printf(" ");
         }
 
         printf("#"); //Gibt ein # aus
         c++;
 
-        for (int hash = 0; hash < c - 1; hash++) //Gibt zusätzliche # aus
-        {
+        for (int hash = 0; hash < c - 1; hash++) { //Gibt zusätzliche # aus
             printf("#");
         }
 
         printf(" "); // Leerzeichen
 
-        for (int hash = 0; hash < c; hash++) //Gibt zusätzliche # aus
-        {
+        for (int hash = 0; hash < c; hash++) { //Gibt zusätzliche # aus
             printf("#");
         }
-
         printf("\n");
     }
 }
