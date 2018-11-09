@@ -210,6 +210,7 @@ def register():
 
     if request.method == "POST":
         if not request.form.get("username"):
+            check = 1
             return apology("must provide username", 403)
 
         elif not request.form.get("password"):
